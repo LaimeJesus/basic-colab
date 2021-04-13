@@ -1,16 +1,13 @@
-
 # Parte Uno: Importar librerias
-import random
-import timeit
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
 import scipy.special
 
-# Parte Dos: Definir funciones
+# Parte Dos: Definir Intervalo de Entradas
 x = np.array(range(2, 100))
 
-# Parte Tres: 0(1) = Funciones Constantes
+# Parte Tres: 0(1) = Acotadas por Funciones Constantes
 y1 = np.full((x.size), 1)
 y5 = np.full((x.size), np.sqrt(2))
 y13 = 1/x
@@ -25,7 +22,7 @@ plt.xlabel('n')
 plt.ylabel('costo')
 plt.legend(loc=4)
 
-# Parte Cuatro: 0(log n) = Funciones Logaritmicas
+# Parte Cuatro: 0(log n) = Acotadas por Funciones Logaritmicas
 y3 = np.log2(np.log2(x))
 y8 = np.log2(x)
 y10 = np.sqrt(x)
@@ -42,7 +39,7 @@ plt.xlabel('n')
 plt.ylabel('costo')
 plt.legend()
 
-# Parte Cinco: 0(n) = Funciones Lineales
+# Parte Cinco: 0(n) = Acotadas por Funciones Lineales
 
 y4 = x+1
 y12 = x*np.log(x)
@@ -56,7 +53,7 @@ plt.xlabel('n')
 plt.ylabel('costo')
 plt.legend()
 
-# Parte Seis: 0(n^2) = Funciones Cuadraticas
+# Parte Seis: 0(n^2) = Acotadas por Funciones Cuadraticas
 y7 = x**2
 y16 = 2**x
 
@@ -73,6 +70,18 @@ plt.xlabel('n')
 plt.ylabel('costo')
 plt.legend()
 
-# Parte Siete: 0(2^n) = Funciones Exponenciales
+# Parte Siete: 0(2^n) = Acotadas por Funciones Exponenciales
 y2 = x**x
 y6 = sp.special.factorial(x)
+
+plt.plot(x, y6, label='x!')
+
+plt.xlabel('n')
+plt.ylabel('costo')
+plt.legend()
+
+plt.plot(x, y2, label='x^x')
+
+plt.xlabel('n')
+plt.ylabel('costo')
+plt.legend()
